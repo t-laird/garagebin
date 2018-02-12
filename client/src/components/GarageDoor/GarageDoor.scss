@@ -6,11 +6,11 @@
   // background-image: url('../../package.jpg');
   background-image: url('../../gdoor4.jpg');
   background-size: auto 100%;
-  transition: 3s;
+  transition: 2.5s;
   z-index: 3;
 
   &.open {
-    top: -3000px;
+    top: -1000px;
   }
 
   &.closed {

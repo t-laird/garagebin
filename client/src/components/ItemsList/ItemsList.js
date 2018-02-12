@@ -9,7 +9,7 @@ class ItemsList extends Component {
     super();
     this.state = {
       sorted: null,
-      buttonText: 'A-Z'
+      buttonIcon: 'icon-sort-name-up'
     }
   }
 
@@ -30,8 +30,8 @@ class ItemsList extends Component {
 
   sortItems = () => {
     const sorted = (!this.state.sorted || this.state.sorted === 'Z-A') ? 'A-Z' : 'Z-A';
-    const buttonText = !(!this.state.sorted || this.state.sorted === 'Z-A') ? 'A-Z' : 'Z-A';
-    this.setState({ sorted, buttonText});
+    const buttonIcon = !(!this.state.sorted || this.state.sorted === 'Z-A') ? 'icon-sort-name-up' : 'icon-sort-name-down';
+    this.setState({ sorted, buttonIcon});
   }
 
   render() {
@@ -39,7 +39,7 @@ class ItemsList extends Component {
       <div className="ItemsList">
         <h3>Garage Items: </h3>
         <ItemCount items={this.props.items} />
-        <button onClick={this.sortItems}>Sort Items ({this.state.buttonText})</button>
+        <button onClick={this.sortItems}>Sort Items <i className={this.state.buttonIcon}></i></button>
         {this.createItems(this.props.items)}
       </div>
     )

@@ -2,8 +2,9 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background: brown;
-  transition: 3s; }
+  background: #cd9494;
+  transition: 3s;
+  z-index: 3; }
   .GarageDoor.open {
     top: -3000px; }
   .GarageDoor.closed {

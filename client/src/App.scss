@@ -2,14 +2,28 @@
   text-align: center;
   min-height: 100%;
   min-width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 450px auto;
 
   h1 {
     font-size: 60px;
+    color: black;
+    width: 90%;
+    margin: 10px auto -60px;
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  h3 {
+    font-size: 30px;
     color: red;
-    width: 100%;
-    margin: 10px;
+    margin: 0px;
+  }
+
+  button {
+    cursor: pointer;
+    transition: 0.5s;
   }
 
 

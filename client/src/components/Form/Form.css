@@ -1,0 +1,9 @@
+.Form {
+  width: 500px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  margin: 0px auto; }
+  .Form input {
+    font-size: 45px; }

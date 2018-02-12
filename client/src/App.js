@@ -48,6 +48,18 @@ class App extends Component {
     });
   }
 
+  updateItem = (update) => {
+    const itemIndex = this.state.items.findIndex( item => item.id === update.id);
+    const items = this.state.items;
+    items[itemIndex].cleanliness = update.cleanliness;
+
+    this.setState({
+      items
+    });
+    console.log(update);
+    console.log(itemIndex);
+  }
+
   render() {
     console.log(this.state);
     return (
@@ -56,7 +68,7 @@ class App extends Component {
         {this.createGarageDoor()}
         {this.garageDoorButton()}
         <Form addItem={this.addItem}/>
-        <ItemsList items={this.state.items}/>
+        <ItemsList updateItem={this.updateItem} items={this.state.items}/>
         
       </div>
     );

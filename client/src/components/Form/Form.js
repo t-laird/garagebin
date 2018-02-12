@@ -30,7 +30,10 @@ class Form extends Component {
 
     if (attemptAdd.status === 'Success') {
       this.setState({
-        submitMsg: <h4>Successfully added {name} to your garage</h4>
+        submitMsg: <h4>Successfully added {name} to your garage</h4>,
+        name: '',
+        reason: '',
+        cleanliness: 'Sparkling'
       })
       this.props.addItem({
         id: attemptAdd.id, name, reason, cleanliness
@@ -55,11 +58,14 @@ class Form extends Component {
         {this.state.submitMsg}
         <input type="text" name="name" value={this.state.name} placeholder="Item Name" onChange={this.handleInput}/>
         <input type="text" name="reason" value={this.state.reason} placeholder="Reason it's in the Garage" onChange={this.handleInput}/>
-        <select name="cleanliness" onChange={this.handleInput}>
-          <option value="Sparkling">Sparkling</option>
-          <option value="Dusty">Dusty</option>
-          <option value="Rancid">Rancid</option>
-        </select>
+        <div className="conditionContainer">
+          Condition: 
+          <select name="cleanliness" value={this.state.cleanliness} onChange={this.handleInput}>
+            <option value="Sparkling">Sparkling</option>
+            <option value="Dusty">Dusty</option>
+            <option value="Rancid">Rancid</option>
+          </select>
+        </div>
         <button onClick={this.handleSubmit}>Submit</button>
       </div>
     )

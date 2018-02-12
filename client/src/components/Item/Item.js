@@ -25,18 +25,22 @@ class Item extends Component {
 
   render() {
     const {item} = this.props;
+    const iconClass = this.state.expanded ? 'icon-up-open' : 'icon-up-open flip';
 
     return (
       <div className="Item">
-        <h5 onClick={this.handleExpand}>Name: {item.name} </h5>
+        <h4 onClick={this.handleExpand}><i className={iconClass}></i>{item.name}</h4>
         {this.state.expanded && 
         <div className="itemDetails">
-          <h5>Reason: {item.reason} </h5>
-          <select name="cleanliness" value={item.cleanliness} onChange={this.handleChange}>
-              <option value="Sparkling">Sparkling</option>
-              <option value="Dusty">Dusty</option>
-              <option value="Rancid">Rancid</option>
-          </select>
+          <h5>Reason: <span>{item.reason}</span></h5>
+          <div className="cleanlinessWrapper">
+            Current Cleanliness: 
+            <select name="cleanliness" value={item.cleanliness} onChange={this.handleChange}>
+                <option value="Sparkling">Sparkling</option>
+                <option value="Dusty">Dusty</option>
+                <option value="Rancid">Rancid</option>
+            </select>
+          </div>
         </div>        
         }
       </div>

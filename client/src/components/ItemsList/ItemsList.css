@@ -1,0 +1,50 @@
+.ItemsList h3 {
+  padding-bottom: 10px; }
+
+.ItemsList button {
+  width: 300px;
+  height: 30px;
+  background: white;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto 5px; }
+  .ItemsList button i {
+    font-size: 18px; }
+  .ItemsList button:hover {
+    background: black;
+    color: white; }
+
+.ItemsList .Item {
+  width: 300px;
+  margin: 0px auto 20px;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid black;
+  padding: 5px 0px 15px; }
+  .ItemsList .Item h4 {
+    font-size: 30px;
+    width: 100%;
+    font-weight: 300;
+    display: grid;
+    margin: 10px 0px;
+    grid-template-columns: 50px 1fr;
+    justify-items: flex-end;
+    cursor: pointer; }
+    .ItemsList .Item h4 i:before {
+      transition: 0.5s;
+      justify-self: flex-start; }
+    .ItemsList .Item h4 i.flip:before {
+      transform: rotate(180deg); }
+  .ItemsList .Item h5 {
+    display: grid;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 10px 0px;
+    grid-template-columns: 120px 1fr; }
+    .ItemsList .Item h5 span {
+      text-align: left; }
+  .ItemsList .Item .cleanlinessWrapper {
+    display: grid;
+    grid-template-columns: 200px 1fr; }

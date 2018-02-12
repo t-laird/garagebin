@@ -61,7 +61,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className={this.state.open ? 'down' : 'up'}>Garage Bin</h1>
+        <h1>Garage Bin <i className="icon-warehouse"></i></h1>
         {this.createGarageDoor()}
         {this.garageDoorButton()}
         <Form addItem={this.addItem}/>

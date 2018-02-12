@@ -14,7 +14,6 @@ class ItemsList extends Component {
   }
 
   createItems = (items) => {
-    console.log(items);
     if (!this.state.sorted) {
       return items.map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
     } else if (this.state.sorted === 'A-Z') {

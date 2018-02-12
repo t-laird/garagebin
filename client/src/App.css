@@ -1,3 +1,4 @@
+@import url(./garage-bin-icons/css/garagebin.css);
 .App {
   text-align: center;
   min-height: 100%;
@@ -16,7 +17,8 @@
   .App h3 {
     font-size: 30px;
     color: red;
-    margin: 0px; }
+    margin: 0px;
+    font-weight: 300; }
   .App button {
     cursor: pointer;
     transition: 0.5s; }

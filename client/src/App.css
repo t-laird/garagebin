@@ -4,7 +4,8 @@
   min-width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 330px auto; }
+  grid-template-rows: 80px 330px auto;
+  background: #e3e3e3; }
   .App h1 {
     font-size: 60px;
     color: black;

@@ -23,7 +23,8 @@
     padding-left: 10px; }
   .Form button {
     border: 1px solid black;
-    background: white; }
+    background: white;
+    justify-content: center; }
     .Form button:hover {
       background: black;
       color: white; }

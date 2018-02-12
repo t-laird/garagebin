@@ -50,7 +50,7 @@ app.patch('/api/v1/garage/:id', (request, response) => {
   const cleanliness = request.body;
   const { id } = request.params;
 
-  if (!cleanliness) {
+  if (!cleanliness.cleanliness) {
     return response.status(422).json({error: 'Enter a valid cleanliness'});
   }
 
@@ -64,3 +64,6 @@ app.patch('/api/v1/garage/:id', (request, response) => {
     });
 
 })
+
+
+module.exports = app;

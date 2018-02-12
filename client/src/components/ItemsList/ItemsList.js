@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './ItemsList.css';
 import Item from '../Item/Item';
+import ItemCount from '../ItemCount/ItemCount';
 
 
 class ItemsList extends Component {
@@ -15,16 +16,16 @@ class ItemsList extends Component {
   createItems = (items) => {
     console.log(items);
     if (!this.state.sorted) {
-      return items.map( (item, ind) => <Item key={`listItem${ind}`} item={item}/>);
+      return items.map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
     } else if (this.state.sorted === 'A-Z') {
       return items
         .sort((a, b) => a.name > b.name)
-        .map( (item, ind) => <Item key={`listItem${ind}`} item={item}/>);
+        .map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
     } else {
 
       return items
       .sort((a, b) => b.name > a.name)
-      .map( (item, ind) => <Item key={`listItem${ind}`} item={item}/>);
+      .map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
     }
   }
 

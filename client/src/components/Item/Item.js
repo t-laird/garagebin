@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { updateCleanliness } from '../../helpers/helpers';
 
 class Item extends Component {
   constructor() {
@@ -8,8 +9,12 @@ class Item extends Component {
     }
   }
 
-  handleChange = (event) => {
-    
+  handleChange = async (event) => {
+    const {value} = event.target;
+    const {item} = this.props; 
+
+    updateCleanliness({id: item.id, cleanliness: value});
+    this.props.updateItem({id: item.id, cleanliness: value});
   }
 
   handleExpand = () => {

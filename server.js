@@ -45,3 +45,22 @@ app.get('/api/v1/garage', (request, response) => {
       return response.status(500).json({error: `Error fetching items: ${err}.`})
     })
 });
+
+app.patch('/api/v1/garage/:id', (request, response) => {
+  const cleanliness = request.body;
+  const { id } = request.params;
+
+  if (!cleanliness) {
+    return response.status(422).json({error: 'Enter a valid cleanliness'});
+  }
+
+
+  return database('garage').where('id', id).update(cleanliness)
+    .then(() => {
+      response.status(202).json({status: 'successfully updated cleanliness'});
+    })
+    .catch(error => {
+      response.status(500).json({error: 'failed to update cleanliness'});
+    });
+
+})

@@ -18,3 +18,18 @@ export const getItems = async () => {
 
   return items;
 }
+
+export const updateCleanliness = async (item) => {
+  const {cleanliness} = item;
+  const updateRes = await fetch(`/api/v1/garage/${item.id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({cleanliness})
+  });
+
+  const updateMsg = await updateRes.json();
+
+  return updateMsg;
+}

@@ -14,17 +14,16 @@ class ItemsList extends Component {
   }
 
   createItems = (items) => {
-    console.log(items);
     if (!this.state.sorted) {
       return items.map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
     } else if (this.state.sorted === 'A-Z') {
       return items
-        .sort((a, b) => a.name > b.name)
+        .sort((a, b) => a.name.toUpperCase() > b.name.toUpperCase())
         .map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
     } else {
 
       return items
-      .sort((a, b) => b.name > a.name)
+      .sort((a, b) => b.name.toUpperCase() > a.name.toUpperCase())
       .map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
     }
   }

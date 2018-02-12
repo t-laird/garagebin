@@ -1,8 +1,7 @@
 import React from 'react';
 import './GarageDoor.css';
 
-const GarageDoor = ({ status }) => {
-  console.log(status);
+const GarageDoor = ({ status }) => {;
   return (
     <div className={`GarageDoor ${status}`}>
     </div>

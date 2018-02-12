@@ -56,12 +56,9 @@ class App extends Component {
     this.setState({
       items
     });
-    console.log(update);
-    console.log(itemIndex);
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <h1 className={this.state.open ? 'down' : 'up'}>Garage Bin</h1>

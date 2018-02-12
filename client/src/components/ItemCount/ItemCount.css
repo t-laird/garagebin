@@ -3,9 +3,15 @@
   grid-template-columns: 1fr 2fr;
   width: 300px;
   margin: 0px auto; }
+  .ItemCount h5 {
+    font-size: 25px;
+    border-top: 1px solid black; }
+  .ItemCount h6 {
+    font-size: 20px; }
   .ItemCount h5, .ItemCount h6 {
-    margin: 0px; }
-  .ItemCount h5:nth-of-type(odd), .ItemCount h6:nth-of-type(odd) {
-    text-align: left; }
-  .ItemCount h5:nth-of-type(even), .ItemCount h6:nth-of-type(even) {
-    text-align: right; }
+    margin: 0px;
+    padding: 5px; }
+    .ItemCount h5:nth-of-type(odd), .ItemCount h6:nth-of-type(odd) {
+      text-align: left; }
+    .ItemCount h5:nth-of-type(even), .ItemCount h6:nth-of-type(even) {
+      text-align: right; }

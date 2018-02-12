@@ -2,7 +2,7 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background: #cd9494;
+  background-image: url("../../package.jpg");
   transition: 3s;
   z-index: 3; }
   .GarageDoor.open {

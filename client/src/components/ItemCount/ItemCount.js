@@ -2,17 +2,15 @@ import React from 'react';
 import './ItemCount.css';
 
 const ItemCount = ({items}) => {
-  const count = items.reduce( (totals, item) => {
-    if (!totals[item.cleanliness]) {
-      totals[item.cleanliness] = 0;
-    }
-    totals[item.cleanliness]++;
-    return totals;
-  }, {});
-
-  console.log(count);
-
-
+  const count = {
+    Sparkling: 0,
+    Dusty: 0,
+    Rancid: 0
+  };
+  
+  items.forEach( item => {
+    count[item.cleanliness]++;
+  });
 
   return (
     <div className="ItemCount">

@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const environment = process.env.NODE_ENV || 'development';
 const config = require('./knexfile')[environment];
-const databae = require('knex')(config);
+const database = require('knex')(config);
 
 
 app.listen(app.get('port'));
@@ -33,5 +33,15 @@ app.post('/api/v1/garage', (request, response) => {
     })
     .catch(err => {
       return response.status(500).json({error: err});
+    })
+});
+
+app.get('/api/v1/garage', (request, response) => {
+  return database('garage').select()
+    .then(items => {
+      return response.status(200).json({items});
+    })
+    .catch(err => {
+      return response.status(500).json({error: `Error fetching items: ${err}.`})
     })
 });

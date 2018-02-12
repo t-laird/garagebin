@@ -1,0 +1,19 @@
+.ItemCount {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 300px;
+  margin: 0px auto;
+
+  h5, h6 {
+    margin: 0px;
+  }
+
+  h5, h6 {
+    &:nth-of-type(odd) {
+      text-align: left;
+    }
+    &:nth-of-type(even) {
+      text-align: right;
+    }
+  }
+}

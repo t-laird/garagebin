@@ -49,12 +49,20 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   .App {
     h1 {
-      font-size: 30px;
+      font-size: 45px;
       text-align: left;
       padding-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .App {
+    h1 {
+      font-size: 25px;
     }
   }
 }

@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  h1 {
+    font-size: 60px;
+    color: red;
+    width: 100%;
+    margin: 10px;
+  }
+
+
+  .doorControl {
+    z-index: 10;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+    font-size: 18px;
+    background: white;
+    border: 1px solid black;
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+}

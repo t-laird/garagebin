@@ -1,0 +1,16 @@
+.GarageDoor {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: brown;
+  transition: 3s;
+
+  &.open {
+    top: -3000px;
+  }
+
+  &.closed {
+    top: 0px;
+  }
+
+}

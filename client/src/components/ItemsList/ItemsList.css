@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
   margin: 0px auto 5px; }
   .ItemsList button i {
     font-size: 18px; }

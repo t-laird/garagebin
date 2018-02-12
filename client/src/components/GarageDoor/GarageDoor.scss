@@ -2,8 +2,9 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background: brown;
+  background: rgb(205, 148, 148);
   transition: 3s;
+  z-index: 3;
 
   &.open {
     top: -3000px;

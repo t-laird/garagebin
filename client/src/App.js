@@ -11,14 +11,17 @@ class App extends Component {
     
     this.state = {
       open: false,
-      items: []
+      items: [],
+      fetched: false,
+      showItems: false
     };
   }
 
-  async componentDidMount () {
+  getGarageItems = async () => {
     const { items } = await getItems();
     this.setState({
-      items
+      items,
+      fetched: true
     })
   }
 
@@ -37,9 +40,26 @@ class App extends Component {
   }
 
   changeDoorStatus = () => {
+    if(!this.state.fetched) {
+      this.getGarageItems();
+    }
+    
+    if(this.state.open) {
+      this.doorHelper('open', 'showItems', 2000);
+    } else { 
+      this.doorHelper('showItems', 'open', 200);
+    }
+  }
+
+  doorHelper = (first, second, time) => {
     this.setState({
-      open: !this.state.open
+      [first]: !this.state[first]
     })
+    setTimeout(() => {
+      this.setState({
+        [second]: !this.state[second]
+      });
+    }, time);
   }
 
   addItem = (item) => {
@@ -64,9 +84,12 @@ class App extends Component {
         <h1>Garage Bin <i className="icon-warehouse"></i></h1>
         {this.createGarageDoor()}
         {this.garageDoorButton()}
-        <Form addItem={this.addItem}/>
-        <ItemsList updateItem={this.updateItem} items={this.state.items}/>
-        
+        {this.state.showItems &&
+          <div>
+            <Form addItem={this.addItem}/>
+            <ItemsList updateItem={this.updateItem} items={this.state.items}/>
+          </div>
+        }
       </div>
     );
   }

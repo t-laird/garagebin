@@ -14,7 +14,7 @@ const database = require('knex')(config);
 
 app.listen(app.get('port'));
 
-app.use('/', express.static(`${__dirname}/public`));
+app.use('/', express.static(`${__dirname}/client/build`));
 
 app.get('/test', (request, response) => {
   return response.status(200).json({test: 'hello'});

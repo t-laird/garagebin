@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './ItemsList.css';
 import Item from '../Item/Item';
+import ItemCount from '../ItemCount/ItemCount';
 
 
 class ItemsList extends Component {

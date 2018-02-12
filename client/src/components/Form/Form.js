@@ -49,7 +49,6 @@ class Form extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="Form">
         <h3>Add Item to Garage: </h3>

@@ -1,25 +1,67 @@
 import React, {Component} from 'react';
 import './Form.css';
+import { addItem } from '../../helpers/helpers';
 
 class Form extends Component {
   constructor() {
     super();
     this.state = {
-
+      name: '',
+      reason: '',
+      cleanliness: 'Sparkling',
+      submitMsg: null
     }
   }
 
+  handleInput = (event) => {
+    const {name, value} = event.target;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+
+  handleSubmit = async () => {
+    const {name, reason, cleanliness} = this.state;
+    const attemptAdd = await addItem({
+      name, reason, cleanliness
+    });
+
+    if (attemptAdd.status === 'Success') {
+      this.setState({
+        submitMsg: <h4>Successfully added {name} to your garage</h4>
+      })
+      this.props.addItem({
+        id: attemptAdd.id, name, reason, cleanliness
+      });
+    } else {
+      this.setState({
+        submitMsg: <h4>Failed to add the item to your garage: {attemptAdd.error}</h4>
+      })
+    }
+
+    setTimeout(() => {
+      this.setState({
+        submitMsg: null
+      });
+    }, 3000)
+  }
+
   render() {
+    console.log(this.state);
     return (
       <div className="Form">
-        <input type="text" name="name" value={this.state.name} />
-        <input type="text" name="name" value={this.state.name} />
-        <select>
+        <h3>Add Item to Garage: </h3>
+        {this.state.submitMsg}
+        <input type="text" name="name" value={this.state.name} placeholder="Item Name" onChange={this.handleInput}/>
+        <input type="text" name="reason" value={this.state.reason} placeholder="Reason it's in the Garage" onChange={this.handleInput}/>
+        <select name="cleanliness" onChange={this.handleInput}>
           <option value="Sparkling">Sparkling</option>
           <option value="Dusty">Dusty</option>
           <option value="Rancid">Rancid</option>
         </select>
-        <button>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }

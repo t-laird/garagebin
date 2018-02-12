@@ -23,13 +23,13 @@ app.post('/api/v1/garage', (request, response) => {
 
   for (var reqParams of ['name', 'reason', 'cleanliness']) {
     if (!item[reqParams]) {
-      return response.status(422).json({error: `You are missing the required parameter ${reqParams}.`})
+      return response.status(422).json({error: `You are missing the ${reqParams} field!`})
     }
   }
 
-  return database('garage').insert(item, 'name')
-    .then(name => {
-      return response.status(201).json({status: `Successfully added ${name} to your garage.`});
+  return database('garage').insert(item, 'id')
+    .then(id => {
+      return response.status(201).json({status: 'Success', id: id[0]});
     })
     .catch(err => {
       return response.status(500).json({error: err});

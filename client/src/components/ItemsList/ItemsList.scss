@@ -5,7 +5,7 @@
 
   button {
     width: 300px;
-    height: 30px;
+    height: 40px;
     background: white;
     border: 1px solid black;
     display: flex;
@@ -13,8 +13,9 @@
     justify-content: center;
     border-radius: 5px;
     margin: 0px auto 5px;
+    font-size: 25px;
     i {
-      font-size: 18px;
+      font-size: 20px;
     }
     &:hover{
       background: black;

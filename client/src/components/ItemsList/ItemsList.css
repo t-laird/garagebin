@@ -26,6 +26,8 @@
     flex-wrap: wrap;
     border-bottom: 1px solid black;
     padding: 5px 0px 15px; }
+    .ItemsList .Item:nth-last-of-type(1) {
+      border-bottom: none; }
     .ItemsList .Item h4 {
       font-size: 30px;
       width: 100%;

@@ -1,6 +1,6 @@
 .ItemsList {
   background: #e3e3e3;
-  margin-bottom: -25px; }
+  margin-bottom: 25px; }
   .ItemsList h3 {
     padding-bottom: 10px; }
   .ItemsList button {
@@ -24,10 +24,9 @@
     margin: 0px auto 20px;
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 1px solid black;
-    padding: 5px 0px 15px; }
-    .ItemsList .Item:nth-last-of-type(1) {
-      border-bottom: none; }
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 0px; }
     .ItemsList .Item h4 {
       font-size: 30px;
       width: 100%;
@@ -35,21 +34,34 @@
       display: grid;
       margin: 10px 0px;
       grid-template-columns: 50px 1fr;
+      padding: 0px 5px;
       justify-items: flex-end;
       cursor: pointer; }
-      .ItemsList .Item h4 i:before {
-        transition: 0.5s;
-        justify-self: flex-start; }
-      .ItemsList .Item h4 i.flip:before {
-        transform: rotate(180deg); }
+      .ItemsList .Item h4 i {
+        margin-top: 0px; }
+        .ItemsList .Item h4 i:before {
+          transition: 0.5s;
+          justify-self: flex-start; }
+        .ItemsList .Item h4 i.flip {
+          margin-top: 8px; }
+          .ItemsList .Item h4 i.flip:before {
+            transform: rotate(180deg); }
     .ItemsList .Item h5 {
       display: grid;
       font-size: 20px;
       font-weight: 300;
-      margin: 10px 0px;
-      grid-template-columns: 120px 1fr; }
+      margin: 0px;
+      text-align: left;
+      grid-template-columns: 120px 1fr;
+      background: #0014f2;
+      max-height: 100px;
+      overflow: scroll;
+      color: white;
+      padding: 5px; }
       .ItemsList .Item h5 span {
         text-align: left; }
     .ItemsList .Item .cleanlinessWrapper {
       display: grid;
-      grid-template-columns: 200px 1fr; }
+      grid-template-columns: 200px 1fr;
+      text-align: left;
+      padding: 5px; }

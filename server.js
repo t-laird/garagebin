@@ -32,13 +32,13 @@ const createRoute = (type, route, cb) => {
 };
 
 const checkParams = (item, reqParams) => {
-  for (reqParam of reqParams) {
+  for (var reqParam of reqParams) {
     if (!item[reqParam]) {
       return {pass: false, param: reqParam};
     }
   }
   return {pass: true};
-}
+};
 
 createRoute('post', '/api/v1/garage', (request, response) => {
   const item = request.body;
@@ -55,7 +55,7 @@ createRoute('post', '/api/v1/garage', (request, response) => {
     })
     .catch(err => {
       return response.status(500).json({error: err});
-    })
+    });
 });
 
 createRoute('get', '/api/v1/garage', (request, response) => {
@@ -64,8 +64,8 @@ createRoute('get', '/api/v1/garage', (request, response) => {
       return response.status(200).json({items});
     })
     .catch(err => {
-      return response.status(500).json({error: `Error fetching items: ${err}.`})
-    })
+      return response.status(500).json({error: `Error fetching items: ${err}.`});
+    });
 });
 
 createRoute('patch', '/api/v1/garage/:id', (request, response) => {
@@ -80,7 +80,7 @@ createRoute('patch', '/api/v1/garage/:id', (request, response) => {
     .then(() => {
       response.status(202).json({status: 'successfully updated cleanliness'});
     })
-    .catch(error => {
+    .catch(() => {
       response.status(500).json({error: 'failed to update cleanliness'});
     });
 });

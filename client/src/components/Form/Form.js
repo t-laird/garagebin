@@ -21,7 +21,6 @@ class Form extends Component {
     });
   }
 
-
   handleSubmit = async () => {
     const {name, reason, cleanliness} = this.state;
     const attemptAdd = await addItem({
@@ -29,15 +28,7 @@ class Form extends Component {
     });
 
     if (attemptAdd.status === 'Success') {
-      this.setState({
-        submitMsg: <h4>Successfully added {name} to your garage</h4>,
-        name: '',
-        reason: '',
-        cleanliness: 'Sparkling'
-      })
-      this.props.addItem({
-        id: attemptAdd.id, name, reason, cleanliness
-      });
+      this.submitSuccess(attemptAdd, name, reason, cleanliness);
     } else {
       this.setState({
         submitMsg: <h4>Failed to add the item to your garage: {attemptAdd.error}</h4>
@@ -49,6 +40,19 @@ class Form extends Component {
         submitMsg: null
       });
     }, 3000)
+  }
+
+
+  submitSuccess = (attemptAdd, name, reason, cleanliness) => {
+    this.setState({
+      submitMsg: <h4>Successfully added {name} to your garage</h4>,
+      name: '',
+      reason: '',
+      cleanliness: 'Sparkling'
+    })
+    this.props.addItem({
+      id: attemptAdd.id, name, reason, cleanliness
+    });
   }
 
   render() {

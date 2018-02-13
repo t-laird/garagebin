@@ -8,8 +8,6 @@ const knex = require('../db/knex');
 
 chai.use(chaiHttp);
 
-
-
 describe('API routes', () => {
   beforeEach((done) => {
     knex.seed.run()
@@ -82,7 +80,6 @@ describe('API routes', () => {
 
   describe('PATCH /api/v1/garage/:id', () => {
     it('should patch the cleanliness field correctly', () => {
-      
       return chai.request(server)
       .get('/api/v1/garage')
       .then(res => {
@@ -131,6 +128,6 @@ describe('API routes', () => {
         err.response.should.have.status(422);
         err.response.body.error.should.equal('Enter a valid cleanliness');
       });
-    })
+    });
   });
 });

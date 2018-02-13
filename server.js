@@ -27,10 +27,6 @@ app.listen(app.get('port'));
 
 app.use('/', express.static(`${__dirname}/client/build`));
 
-app.get('/test', (request, response) => {
-  return response.status(200).json({test: 'hello'});
-});
-
 app.post('/api/v1/garage', (request, response) => {
   const item = request.body;
 

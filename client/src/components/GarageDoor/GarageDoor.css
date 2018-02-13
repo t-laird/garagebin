@@ -4,9 +4,9 @@
   width: 100%;
   background-image: url("../../gdoor4.jpg");
   background-size: auto 100%;
-  transition: 3s;
+  transition: 2.5s;
   z-index: 3; }
   .GarageDoor.open {
-    top: -3000px; }
+    top: -1000px; }
   .GarageDoor.closed {
     top: 0px; }

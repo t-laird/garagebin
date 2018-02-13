@@ -13,18 +13,31 @@ class ItemsList extends Component {
     }
   }
 
+  orderItems = (items, order) => {
+    return this.makeItems(items
+      .sort((a, b) => {
+        if (a.name.toUpperCase() > b.name.toUpperCase()) {
+          return -1 * order;
+        }
+        if (b.name.toUpperCase() > a.name.toUpperCase()) {
+          return 1 * order;
+        }
+        return 0;
+      })
+    );
+  }
+
+  makeItems = (items) => {
+    return items.map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
+  }
+
   createItems = (items) => {
     if (!this.state.sorted) {
-      return items.map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
+      return this.makeItems(items);
     } else if (this.state.sorted === 'A-Z') {
-      return items
-        .sort((a, b) => a.name.toUpperCase() > b.name.toUpperCase())
-        .map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
+      return this.orderItems(items, 1);
     } else {
-
-      return items
-      .sort((a, b) => b.name.toUpperCase() > a.name.toUpperCase())
-      .map( (item, ind) => <Item key={`listItem${ind}`} updateItem={this.props.updateItem} item={item}/>);
+      return this.orderItems(items, -1);
     }
   }
 

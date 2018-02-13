@@ -46,6 +46,8 @@
           margin-top: 8px; }
           .ItemsList .Item h4 i.flip:before {
             transform: rotate(180deg); }
+    .ItemsList .Item .itemDetails {
+      width: 100%; }
     .ItemsList .Item h5 {
       display: grid;
       font-size: 20px;
@@ -53,7 +55,8 @@
       margin: 0px;
       text-align: left;
       grid-template-columns: 120px 1fr;
-      background: #0014f2;
+      background: #f00c;
+      width: 100%;
       max-height: 100px;
       overflow: scroll;
       color: white;

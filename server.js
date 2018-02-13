@@ -27,13 +27,26 @@ app.listen(app.get('port'));
 
 app.use('/', express.static(`${__dirname}/client/build`));
 
-app.post('/api/v1/garage', (request, response) => {
+const createRoute = (type, route, cb) => {
+  return app[type](route, cb);
+};
+
+const checkParams = (item, reqParams) => {
+  for (reqParam of reqParams) {
+    if (!item[reqParam]) {
+      return {pass: false, param: reqParam};
+    }
+  }
+  return {pass: true};
+}
+
+createRoute('post', '/api/v1/garage', (request, response) => {
   const item = request.body;
 
-  for (var reqParams of ['name', 'reason', 'cleanliness']) {
-    if (!item[reqParams]) {
-      return response.status(422).json({error: `You are missing the ${reqParams} field!`})
-    }
+  const validateParams = checkParams(item, ['name', 'reason', 'cleanliness']);
+
+  if (!validateParams.pass) {
+    return response.status(422).json({error: `You are missing the ${validateParams.param} field!`});
   }
 
   return database('garage').insert(item, 'id')
@@ -45,7 +58,7 @@ app.post('/api/v1/garage', (request, response) => {
     })
 });
 
-app.get('/api/v1/garage', (request, response) => {
+createRoute('get', '/api/v1/garage', (request, response) => {
   return database('garage').select()
     .then(items => {
       return response.status(200).json({items});
@@ -55,14 +68,13 @@ app.get('/api/v1/garage', (request, response) => {
     })
 });
 
-app.patch('/api/v1/garage/:id', (request, response) => {
+createRoute('patch', '/api/v1/garage/:id', (request, response) => {
   const cleanliness = request.body;
   const { id } = request.params;
 
   if (!cleanliness.cleanliness) {
     return response.status(422).json({error: 'Enter a valid cleanliness'});
   }
-
 
   return database('garage').where('id', id).update(cleanliness)
     .then(() => {
@@ -71,8 +83,7 @@ app.patch('/api/v1/garage/:id', (request, response) => {
     .catch(error => {
       response.status(500).json({error: 'failed to update cleanliness'});
     });
-
-})
+});
 
 
 module.exports = app;
